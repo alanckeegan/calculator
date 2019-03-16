@@ -13,7 +13,7 @@ const DisplayDiv = styled.div`
 
 const Display = ({displayNumber}) => (
 
-    <DisplayDiv>{displayNumber}</DisplayDiv>
+    <DisplayDiv>{displayNumber === 0 ? '' : displayNumber}</DisplayDiv>
 
 
 )
