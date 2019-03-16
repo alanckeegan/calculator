@@ -26,27 +26,32 @@ let displayVar = 'default'
 class Calculator extends Component {
 
   state = {
-    displayNumber: 0,
-    value: 0
+    displayNumber: '',
+    value: 0,
+    solution: 0
   }
 
 
+
   doEntry = (number, displayNumber) => {
-    // I'm strugling to use the prop from the child to change the parent's state
-    number === 'C' ? this.state.displayNumber = '' : this.state.displayNumber = number
 
-
+    number === 'C' ? this.setState({displayNumber: '0', value: '0'}) : this.setState({displayNumber: this.state.displayNumber+number})
 
   }
 
   doPlus = () => {
    // Display.value += Display.display
    // Display.display = ''
+   this.setState({value: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
+   this.setState({displayNumber: 0})
+   console.log(this.state.value)
 
   }
 
   doCalc = () => {
     // Display.display = Display.value
+    this.setState({solution: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
+    this.setState({displayNumber: this.state.solution})
   }
 
   render() {
