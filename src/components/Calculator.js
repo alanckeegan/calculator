@@ -40,8 +40,7 @@ class Calculator extends Component {
   }
 
   doPlus = () => {
-   // Display.value += Display.display
-   // Display.display = ''
+
    this.setState({value: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
    this.setState({displayNumber: 0})
    console.log(this.state.value)
