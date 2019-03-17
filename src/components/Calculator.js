@@ -13,7 +13,7 @@ const NumRow = styled.div`
 `
 
 const Calctainer = styled.div`
-  text-align: center;
+
   background: grey;
   width: 200px;
   border-radius: 30%;
@@ -21,7 +21,17 @@ const Calctainer = styled.div`
   padding: 30px;
   `
 
-let displayVar = 'default'
+const EnterButton = styled.button`
+background: white;
+color: black;
+border-radius: 15%;
+height: 30px;
+margin: auto;
+margin-bottom: 10px;
+text-align: center;
+
+  `
+
 
 class Calculator extends Component {
 
@@ -85,7 +95,7 @@ class Calculator extends Component {
         </NumRow>
         <NumRow>
 
-        <Button onClick={this.doCalc}>Enter</Button>
+        <EnterButton onClick={this.doCalc}>Enter</EnterButton>
         </NumRow>
 
       </Calctainer>
