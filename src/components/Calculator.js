@@ -28,29 +28,32 @@ class Calculator extends Component {
   state = {
     displayNumber: '',
     value: 0,
-    solution: 0
+    solution: ''
   }
 
 
 
   doEntry = (number, displayNumber) => {
 
-    number === 'C' ? this.setState({displayNumber: '0', value: '0'}) : this.setState({displayNumber: this.state.displayNumber+number})
-
+    number === 'C' ? this.setState({displayNumber: '', value: '0'}) : this.setState({displayNumber: this.state.displayNumber+number})
+    console.log(this.state)
   }
 
   doPlus = () => {
 
    this.setState({value: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
    this.setState({displayNumber: 0})
-   console.log(this.state.value)
+   console.log(this.state)
 
   }
 
-  doCalc = () => {
+  doCalc = (display) => {
     // Display.display = Display.value
-    this.setState({solution: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
-    this.setState({displayNumber: this.state.solution})
+    this.setState(
+      {solution: parseInt(this.state.displayNumber)+parseInt(this.state.value), value: 0},
+      () => this.setState({displayNumber: this.state.solution}, () => console.log(this.state))
+    )
+
   }
 
   render() {
