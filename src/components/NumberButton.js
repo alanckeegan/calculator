@@ -9,7 +9,7 @@ const NumberButtonDiv = styled.button`
   border-radius: 100%;
   padding: 15px 20px;
   :hover {
-    color: white;
+    background: #93235F;
 
   }
 `
