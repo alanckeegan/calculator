@@ -8,6 +8,9 @@ const DisplayDiv = styled.div`
   border-radius: 15%;
   height: 30px;
   width: 100px;
+  margin: auto;
+  margin-bottom: 10px;
+  text-align: center;
 
 `
 

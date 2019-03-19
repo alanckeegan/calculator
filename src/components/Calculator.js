@@ -13,7 +13,7 @@ const NumRow = styled.div`
 `
 
 const Calctainer = styled.div`
-  text-align: center;
+
   background: grey;
   width: 200px;
   border-radius: 30%;
@@ -21,36 +21,53 @@ const Calctainer = styled.div`
   padding: 30px;
   `
 
-let displayVar = 'default'
+const EnterButton = styled.button`
+background: white;
+color: black;
+border-radius: 15%;
+height: 30px;
+margin: auto;
+margin-bottom: 10px;
+text-align: center;
+:hover {
+  background: #D6D6D6;
+
+}
+
+  `
+
 
 class Calculator extends Component {
 
   state = {
     displayNumber: '',
     value: 0,
-    solution: 0
+    solution: ''
   }
 
 
 
   doEntry = (number, displayNumber) => {
 
-    number === 'C' ? this.setState({displayNumber: '0', value: '0'}) : this.setState({displayNumber: this.state.displayNumber+number})
-
+    number === 'C' ? this.setState({displayNumber: '', value: '0'}) : this.setState({displayNumber: this.state.displayNumber+number})
+    console.log(this.state)
   }
 
   doPlus = () => {
 
    this.setState({value: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
    this.setState({displayNumber: 0})
-   console.log(this.state.value)
+   console.log(this.state)
 
   }
 
-  doCalc = () => {
+  doCalc = (display) => {
     // Display.display = Display.value
-    this.setState({solution: parseInt(this.state.displayNumber)+parseInt(this.state.value)})
-    this.setState({displayNumber: this.state.solution})
+    this.setState(
+      {solution: parseInt(this.state.displayNumber)+parseInt(this.state.value), value: 0},
+      () => this.setState({displayNumber: this.state.solution}, () => console.log(this.state))
+    )
+
   }
 
   render() {
@@ -82,7 +99,7 @@ class Calculator extends Component {
         </NumRow>
         <NumRow>
 
-        <Button onClick={this.doCalc}>Enter</Button>
+        <EnterButton onClick={this.doCalc}>Enter</EnterButton>
         </NumRow>
 
       </Calctainer>

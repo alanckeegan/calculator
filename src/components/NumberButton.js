@@ -4,15 +4,17 @@ import React, { Component } from 'react'
 
 
 const NumberButtonDiv = styled.button`
-  background: black;
-  color: red;
+  background: #E23190;
+  color: black;
   border-radius: 100%;
   padding: 15px 20px;
   :hover {
-    color: white;
+    background: #93235F;
 
   }
 `
+
+
 
 const NumberButton = ({number, entryFunction}) => (
     <NumberButtonDiv onClick={() => entryFunction(number)}>{number}</NumberButtonDiv>
