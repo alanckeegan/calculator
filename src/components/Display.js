@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import React, { Component } from 'react'
-
+// React should always be your first import
+// PS You aren't using { Component } - do you know why?
+// https://screencast.com/t/xgAhAhjLJtE
 
 const DisplayDiv = styled.div`
   background: white;
